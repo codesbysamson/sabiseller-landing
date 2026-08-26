@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SabiReply — Your WhatsApp Sales Assistant</title>
+<title>SabiSeller — Your WhatsApp Sales Assistant</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -74,12 +74,13 @@
     z-index: 2;
   }
 
-  section { padding: 7rem 0; position: relative; }
+  section { padding: 5rem 0; position: relative; }
   
   .section-header {
     text-align: center;
     max-width: 640px;
-    margin: 0 auto 4.5rem;
+    margin: 0 auto 3.5rem;
+    padding: 0 1rem;
   }
   .section-tag {
     display: inline-flex;
@@ -106,20 +107,20 @@
   }
   h1, h2, h3 { color: var(--ink); font-weight: 800; }
   h1 { 
-    font-size: clamp(2.75rem, 6vw, 4.5rem); 
-    line-height: 1.02;
-    letter-spacing: -0.04em;
+    font-size: clamp(2.25rem, 5vw, 4rem); 
+    line-height: 1.1;
+    letter-spacing: -0.03em;
     font-weight: 900;
   }
   h2 { 
-    font-size: clamp(2.25rem, 4.5vw, 3.25rem); 
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+    font-size: clamp(1.875rem, 4vw, 2.75rem); 
+    line-height: 1.15;
+    letter-spacing: -0.02em;
     font-weight: 800;
   }
-  h3 { font-size: 1.25rem; letter-spacing: -0.02em; font-weight: 700; }
+  h3 { font-size: 1.1875rem; letter-spacing: -0.02em; font-weight: 700; }
   p { color: var(--ink-soft); font-size: 1.0625rem; line-height: 1.7; }
-  .lead { font-size: 1.1875rem; color: var(--ink-soft); line-height: 1.65; }
+  .lead { font-size: 1.125rem; color: var(--ink-soft); line-height: 1.65; }
 
   /* Accent text - clean, no italics */
   .accent {
@@ -218,7 +219,7 @@
     right: 0;
     z-index: 100;
     padding: 1.25rem 0;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     transition: all 0.4s var(--ease);
@@ -233,6 +234,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 1.5rem;
   }
   .logo {
     display: flex;
@@ -253,6 +255,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 12px -2px var(--primary-glow), 0 1px 0 rgba(255,255,255,0.2) inset;
+    flex-shrink: 0;
   }
   .nav-links {
     display: flex;
@@ -288,11 +291,14 @@
     border: 1px solid var(--line);
     cursor: pointer;
     color: var(--ink);
-    padding: 0.625rem;
+    padding: 0.75rem;
     border-radius: 10px;
     transition: all 0.3s var(--ease);
     z-index: 101;
     position: relative;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
   }
   .mobile-menu-btn:hover {
     background: var(--ink);
@@ -301,6 +307,8 @@
   }
   .mobile-menu-btn svg {
     display: block;
+    width: 22px;
+    height: 22px;
   }
   .desktop-only { display: inline-flex; }
   .mobile-only { display: none; }
@@ -317,9 +325,9 @@
       background: #FFFFFF;
       border-left: 1px solid var(--line);
       flex-direction: column;
-      padding: 6rem 2rem 2rem;
-      gap: 1.5rem;
-      align-items: flex-start;
+      padding: 6rem 2.5rem 2.5rem;
+      gap: 0;
+      align-items: stretch;
       display: none;
       box-shadow: -20px 0 60px -20px rgba(0,0,0,0.15);
       transform: translateX(100%);
@@ -334,19 +342,23 @@
     .nav-links a:not(.btn) {
       font-size: 1.125rem;
       width: 100%;
-      padding: 0.5rem 0;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-links a:not(.btn):last-child {
+      border-bottom: none;
     }
     .mobile-only { 
       display: inline-flex; 
       width: 100%; 
       justify-content: flex-start;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
     }
   }
 
   /* ---------- Hero ---------- */
   .hero {
-    padding: 10rem 0 6rem;
+    padding: 9rem 0 5rem;
     position: relative;
     overflow: hidden;
     background: var(--bg);
@@ -421,7 +433,7 @@
     50% { opacity: 0.6; transform: scale(1.2); }
   }
   
-  .hero h1 { margin-bottom: 1.75rem; }
+  .hero h1 { margin-bottom: 1.5rem; }
   
   .hero-sub {
     margin-bottom: 2.5rem;
@@ -440,6 +452,7 @@
     font-size: 0.875rem;
     color: var(--ink-muted);
     font-weight: 600;
+    flex-wrap: wrap;
   }
   .trust-statement .divider {
     width: 3px;
@@ -449,11 +462,25 @@
   }
 
   @media (max-width: 1024px) {
-    .hero { padding: 8rem 0 4rem; }
-    .hero-container { grid-template-columns: 1fr; text-align: center; gap: 4rem; }
+    .hero { padding: 7rem 0 3rem; }
+    .hero-container { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
     .hero-sub { margin-left: auto; margin-right: auto; }
     .hero-ctas { justify-content: center; }
-    .trust-statement { justify-content: center; flex-wrap: wrap; }
+    .trust-statement { justify-content: center; }
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 6rem 0 2.5rem; }
+    .hero-ctas { 
+      flex-direction: column; 
+      width: 100%;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-ctas .btn {
+      width: 100%;
+    }
   }
 
   /* ---------- Chat UI ---------- */
@@ -689,6 +716,7 @@
     justify-content: center;
     gap: 3rem;
     flex-wrap: wrap;
+    padding: 0 1rem;
   }
   .trust-label {
     font-size: 0.8125rem;
@@ -942,7 +970,7 @@
   .cta-section {
     background: var(--ink);
     color: #fff;
-    padding: 8rem 1.5rem;
+    padding: 6rem 1.5rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -965,7 +993,7 @@
   .cta-section h2 { 
     color: #fff; 
     margin-bottom: 1.5rem;
-    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-size: clamp(2rem, 4vw, 3rem);
   }
   .cta-section h2 .accent {
     color: var(--primary-bright);
@@ -975,8 +1003,8 @@
   }
   .cta-section p { 
     color: rgba(255,255,255,0.75); 
-    margin-bottom: 3rem; 
-    font-size: 1.1875rem;
+    margin-bottom: 2.5rem; 
+    font-size: 1.125rem;
     max-width: 520px;
     margin-left: auto;
     margin-right: auto;
@@ -1103,6 +1131,65 @@
     transition: width 0.1s linear;
     box-shadow: 0 0 10px var(--primary-glow);
   }
+
+  /* Mobile-specific adjustments */
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 1.25rem;
+    }
+    
+    .section-header {
+      padding: 0 0.5rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+      line-height: 1.15;
+    }
+    
+    h2 {
+      font-size: 1.625rem;
+      line-height: 1.2;
+    }
+    
+    .lead {
+      font-size: 1.0625rem;
+      line-height: 1.6;
+    }
+    
+    .accent::after {
+      height: 2px;
+      bottom: 0.1em;
+    }
+    
+    .trust-inner {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .trust-categories {
+      gap: 0.75rem 1.25rem;
+    }
+    
+    .verticals-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+  }
 </style>
 </head>
 <body>
@@ -1117,7 +1204,7 @@
           <path d="M7 12L10 15L17 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </span>
-      SabiReply
+      SabiSeller
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#how">How it works</a>
@@ -1151,7 +1238,7 @@
     <div class="hero-content reveal">
       <span class="eyebrow"><span class="dot"></span> Now open for business</span>
       <h1>Your shop, replying<br>on WhatsApp <span class="accent">while you sleep.</span></h1>
-      <p class="lead hero-sub">SabiReply answers your customers, quotes your prices and takes their orders on WhatsApp — instantly, in your own words, using only what's true about your business.</p>
+      <p class="lead hero-sub">SabiSeller answers your customers, quotes your prices and takes their orders on WhatsApp — instantly, in your own words, using only what's true about your business.</p>
       <div class="hero-ctas">
         <a href="https://wa.me/2349110133180?text=Hello" target="_blank" rel="noopener" class="btn btn-primary">
           <span>Try the live demo</span>
@@ -1172,7 +1259,7 @@
         <div class="chat-header">
           <div class="chat-avatar">S</div>
           <div class="chat-info">
-            <span class="chat-name">SabiReply</span>
+            <span class="chat-name">SabiSeller</span>
             <span class="chat-status">online</span>
           </div>
           <div class="chat-header-actions">
@@ -1243,10 +1330,10 @@
     <div class="demo-content reveal">
       <span class="badge"><span class="live-dot"></span> LIVE WHATSAPP CONVERSATION</span>
       <h2>This isn't a mockup. <span class="accent">It's what happens right now.</span></h2>
-      <p class="lead">Every reply below came from a real message, sent to a real number, running on SabiReply today. <strong>Nothing is scripted</strong> — the assistant reads your product list, your prices and your delivery terms, and answers only from what's actually true about your shop.</p>
+      <p class="lead">Every reply below came from a real message, sent to a real number, running on SabiSeller today. <strong>Nothing is scripted</strong> — the assistant reads your product list, your prices and your delivery terms, and answers only from what's actually true about your shop.</p>
       <p class="lead">If a customer asks for something you don't sell, it says so — it never invents a price, a size, or a policy.</p>
       <a href="https://wa.me/2349110133180?text=Hello" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 0.5rem;">
-        <span>Message SabiReply now</span>
+        <span>Message SabiSeller now</span>
         <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </a>
     </div>
@@ -1255,7 +1342,7 @@
         <div class="chat-header">
           <div class="chat-avatar">S</div>
           <div class="chat-info">
-            <span class="chat-name">SabiReply</span>
+            <span class="chat-name">SabiSeller</span>
             <span class="chat-status">online</span>
           </div>
         </div>
@@ -1318,7 +1405,7 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
         </div>
         <h3>You get the order, not the runaround</h3>
-        <p>SabiReply answers, takes the order, and hands you a clean summary — name, item, size, delivery, total.</p>
+        <p>SabiSeller answers, takes the order, and hands you a clean summary — name, item, size, delivery, total.</p>
       </div>
     </div>
   </div>
@@ -1427,9 +1514,9 @@
 <section class="cta-section">
   <div class="container cta-container reveal">
     <h2>Stop losing customers because<br>you replied <span class="accent">too late.</span></h2>
-    <p>Let SabiReply handle the first conversation while you focus on running your business.</p>
+    <p>Let SabiSeller handle the first conversation while you focus on running your business.</p>
     <a href="https://wa.me/2349110133180?text=Hello" target="_blank" rel="noopener" class="btn btn-white">
-      <span>Try SabiReply on WhatsApp</span>
+      <span>Try SabiSeller on WhatsApp</span>
       <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
     </a>
   </div>
@@ -1443,7 +1530,7 @@
           <span class="logo-mark">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 12L10 15L17 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
-          SabiReply
+          SabiSeller
         </div>
         <p class="footer-desc">A WhatsApp sales assistant for small businesses. Built in Lagos, for businesses everywhere.</p>
       </div>
@@ -1459,19 +1546,19 @@
         <h4>Company</h4>
         <ul>
           <li><a href="#verticals">Who it's for</a></li>
-          <li><a href="mailto:hello@sabireply.com.ng">Contact</a></li>
+          <li><a href="mailto:hello@sabiseller.com.ng">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a href="mailto:hello@sabireply.com.ng">hello@sabireply.com.ng</a></li>
+          <li><a href="mailto:hello@sabiseller.com.ng">hello@sabiseller.com.ng</a></li>
           <li><a href="https://wa.me/2349110133180?text=Hello" target="_blank" rel="noopener">WhatsApp demo</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">&copy; 2026 SabiReply. All rights reserved.</div>
+      <div class="footer-copy">&copy; 2026 SabiSeller. All rights reserved.</div>
       <div class="footer-location">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
         Lagos, Nigeria
